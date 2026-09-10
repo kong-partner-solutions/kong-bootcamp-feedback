@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 🌐 Kong Bootcamps Practice Portal
+    url: https://bootcamp.kong-demo.com/practice
+    about: Access interactive labs, exam prep, and hands-on environments across all 11 bootcamps.
+  - name: 📦 Lab Resources & Manifests Catalog
+    url: https://bootcamp.kong-demo.com/resources
+    about: Download YAML manifests, OpenAPI specifications, and Insomnia test collections.
+  - name: 📖 Official Kong Documentation
+    url: https://developer.konghq.com
+    about: Official product documentation for Kong Gateway, Konnect, Insomnia, and Kong Mesh.

@@ -1,0 +1,57 @@
+name: 🏷️ Issue Auto-Triage & Labeling
+
+on:
+  issues:
+    types: [opened, edited]
+
+permissions:
+  issues: write
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Auto-Label Bootcamp Track
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issue = context.payload.issue;
+            const text = (issue.title + ' ' + (issue.body || '')).toLowerCase();
+            const labelsToAdd = new Set();
+
+            const mappings = [
+              { keyword: 'ai gateway', label: 'ai-gateway' },
+              { keyword: 'agentic', label: 'agentic-ai' },
+              { keyword: 'api gateway', label: 'api-gateway' },
+              { keyword: 'apiops', label: 'apiops' },
+              { keyword: 'deck', label: 'apiops' },
+              { keyword: 'dev portal', label: 'dev-portal' },
+              { keyword: 'developer portal', label: 'dev-portal' },
+              { keyword: 'insomnia', label: 'insomnia' },
+              { keyword: 'byoa', label: 'byoa' },
+              { keyword: 'bring your own agent', label: 'byoa' },
+              { keyword: 'volcano', label: 'volcano-sdk' },
+              { keyword: 'mesh', label: 'service-mesh' },
+              { keyword: 'event gateway', label: 'event-gateway' },
+              { keyword: 'kafka', label: 'event-gateway' },
+              { keyword: 'metering', label: 'metering-billing' },
+              { keyword: 'billing', label: 'metering-billing' },
+              { keyword: 'certification', label: 'certification' },
+              { keyword: 'kgca', label: 'certification' },
+              { keyword: 'kka', label: 'certification' }
+            ];
+
+            for (const { keyword, label } of mappings) {
+              if (text.includes(keyword)) {
+                labelsToAdd.add(label);
+              }
+            }
+
+            if (labelsToAdd.size > 0) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                labels: Array.from(labelsToAdd)
+              });
+            }

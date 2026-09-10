@@ -1,0 +1,70 @@
+name: 💬 Documentation & Lab Page Feedback
+description: Submit feedback, corrections, or suggestions for a specific bootcamp page or lab.
+title: "[Feedback]: "
+labels: ["partner-feedback", "documentation", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping us improve the **Kong Enablement Bootcamps**!
+        Please fill in the details below. **Never paste API keys, Konnect Personal Access Tokens (PATs), or private certificates.**
+
+  - type: dropdown
+    id: bootcamp
+    attributes:
+      label: Bootcamp Track
+      description: Which bootcamp does this feedback relate to?
+      options:
+        - "🔀 Kong API Gateway Bootcamp"
+        - "🤖 Kong AI Gateway 2.x Bootcamp"
+        - "🛠️ Kong Agentic AI Bootcamp"
+        - "🔄 Kong APIOps & decK Bootcamp"
+        - "🌐 Kong Developer Portal Bootcamp"
+        - "🎮 Kong Insomnia Bootcamp"
+        - "🤝 Bring Your Own Agent (BYOA) Bootcamp"
+        - "🌋 Volcano Agent SDK Bootcamp"
+        - "🕸️ Kong Service Mesh Bootcamp"
+        - "⚡ Kong Event Gateway Bootcamp"
+        - "💳 Kong Metering & Billing Bootcamp"
+        - "🎓 Kong Certification Practice (KGCA / KKA)"
+        - "🏠 Central Landing & Resources Hub"
+    validations:
+      required: true
+
+  - type: input
+    id: page_url
+    attributes:
+      label: Page URL
+      description: The URL of the page you are providing feedback on (e.g. https://bootcamp.kong-demo.com/learn-kong-gateway/module-03/lab-01).
+      placeholder: "https://bootcamp.kong-demo.com/..."
+    validations:
+      required: false
+
+  - type: dropdown
+    id: rating
+    attributes:
+      label: Helpfulness Rating
+      description: How would you rate this content?
+      options:
+        - "👍 Helpful, but has suggestions for improvement"
+        - "👎 Needs Improvement (Confusing, outdated, or incomplete)"
+        - "💬 General Question / Clarification"
+    validations:
+      required: true
+
+  - type: textarea
+    id: feedback_details
+    attributes:
+      label: What can we improve?
+      description: Please describe what was confusing, broken, inaccurate, or missing on this page.
+      placeholder: "In step 3 of the lab, the curl command returned a 404 because..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed_solution
+    attributes:
+      label: Proposed Solution or Suggested Text
+      description: If you have a specific suggestion for how to rephrase or fix it, please share here.
+    validations:
+      required: false

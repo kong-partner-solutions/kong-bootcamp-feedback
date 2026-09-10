@@ -1,0 +1,47 @@
+name: 💡 Lab / Topic Request
+description: Propose a new lab scenario, plugin use-case, architecture pattern, or exam prep question.
+title: "[Proposal]: "
+labels: ["enhancement", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Have an idea for a new bootcamp lab or feature? We welcome requests from partners and enablement champions!
+
+  - type: dropdown
+    id: bootcamp
+    attributes:
+      label: Target Bootcamp Track
+      options:
+        - "🔀 Kong API Gateway Bootcamp"
+        - "🤖 Kong AI Gateway 2.x Bootcamp"
+        - "🛠️ Kong Agentic AI Bootcamp"
+        - "🔄 Kong APIOps & decK Bootcamp"
+        - "🌐 Kong Developer Portal Bootcamp"
+        - "🎮 Kong Insomnia Bootcamp"
+        - "🤝 Bring Your Own Agent (BYOA) Bootcamp"
+        - "🌋 Volcano Agent SDK Bootcamp"
+        - "🕸️ Kong Service Mesh Bootcamp"
+        - "⚡ Kong Event Gateway Bootcamp"
+        - "💳 Kong Metering & Billing Bootcamp"
+        - "🎓 Kong Certification Practice (KGCA / KKA)"
+        - "🌟 New Bootcamp Proposal"
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal_summary
+    attributes:
+      label: Description of the Proposed Lab or Scenario
+      description: What customer or partner scenario does this address? What should the lab demonstrate?
+      placeholder: "Add a lab demonstrating how to combine AI Prompt Guard with Redis Semantic Caching in a high-throughput financial scenario..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: technical_prerequisites
+    attributes:
+      label: Suggested Tools or Plugins
+      description: Kong plugins, external dependencies (e.g. Keycloak, Kafka, Ollama, LangChain), or decK/kongctl features needed.
+    validations:
+      required: false
