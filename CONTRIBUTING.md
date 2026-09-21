@@ -35,6 +35,6 @@ If you believe you have discovered a security vulnerability in Kong Gateway or K
 
 ## 🛠️ Triaging & SLA
 
-1. **Automated Triage**: Our GitHub Actions workflow automatically labels issues with the target bootcamp track.
+1. **Triage**: Incoming issues are reviewed and labeled with the target bootcamp track.
 2. **Review**: The Kong Partner Solutions and Enablement team reviews incoming issues on a continuous basis.
 3. **Agent Remediation**: Issues with `<!-- agent-metadata ... -->` blocks are ingested into our autonomous remediation pipeline to rapidly push documentation and manifest fixes to the live learning portal.
